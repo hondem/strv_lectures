@@ -8,7 +8,7 @@ const BASE_URL = 'http://swapi.co/api/';
  * Get someone's record from DB
  * @param {*} id 
  */
-const getSomeone = id => {
+const getPerson = id => {
 	request({ url: `${BASE_URL}people/${id}` , json: true }, (err, response, body) => {
 		if(err){
 			console.error("Error occured while fetching data about Luke: ", err);
@@ -36,4 +36,4 @@ const getVehicle = url => {
 	});
 }
 
-getSomeone(1);
+getPerson(1);

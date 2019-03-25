@@ -5,16 +5,15 @@ const request = require('request-promise');
 (async() => {
 	try{
 		const lukeData = JSON.parse(await request('http://swapi.co/api/people/1'));
-		
-		let promises = lukeData.vehicles.map(vehicle => request(vehicle));
-		return Promise.all(promises);
+		const promises = lukeData.vehicles.map(vehicle => request({ url: vehicle, json: true }));
+		const result = await Promise.all(promises);
+
+		result.map(vehicle => {
+			console.log(vehicle.name);
+		});
 	} catch (err){
 		console.err(err);
 	}
-})().then(response => {
-	response.forEach(vehicle => {
-		console.log(JSON.parse(vehicle).name);
-	});
-}).catch(err => {
+})().catch(err => {
 	console.err(err);
 });
