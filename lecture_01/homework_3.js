@@ -4,7 +4,7 @@ const request = require('request-promise');
 
 (async() => {
 	try{
-		const lukeData = JSON.parse(await request('http://swapi.co/api/people/1'));
+		const lukeData = await request({ url: 'http://swapi.co/api/people/1', json: true });
 		const promises = lukeData.vehicles.map(vehicle => request({ url: vehicle, json: true }));
 		const result = await Promise.all(promises);
 
@@ -12,8 +12,6 @@ const request = require('request-promise');
 			console.log(vehicle.name);
 		});
 	} catch (err){
-		console.err(err);
+		console.error(err);
 	}
-})().catch(err => {
-	console.err(err);
-});
+})();
