@@ -1,0 +1,23 @@
+{
+  "name": "lecture_03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-router": "^7.4.0",
+    "pino": "^5.12.0",
+    "pino-pretty": "^2.6.0",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@strv/eslint-config-node": "^1.0.1",
+    "eslint": "^5.16.0"
+  }
+}
