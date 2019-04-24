@@ -1,2 +1,2 @@
 # STRV Lectures
-This respository is made as my... well... playground. I'll be sharing my solutions from STRV Node JS nights with my mentor.
+This respository is made as my... well... playground. I'll be sharing my solutions from STRV Node JS nights with my mentor - [Adam Vřeský](https://github.com/thunderball1).

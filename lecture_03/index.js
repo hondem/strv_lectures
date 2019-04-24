@@ -15,7 +15,7 @@ const router = new Router()
  */
 const articles = []
 
-const getTargetArticle = (articleId) => {
+const getArticle = (articleId) => {
 	return articles.find( article => { return article.id === articleId })
 }
 
@@ -27,10 +27,10 @@ router.get('/articles', ctx => {
 })
 
 router.get('/article/:id', ctx => {
-	const targetArticle = getTargetArticle(ctx.params.id)
+	const article = getArticle(ctx.params.id)
 
-	if (targetArticle){
-		ctx.response.body = targetArticle
+	if (article){
+		ctx.response.body = article
 	}
 })
 
@@ -40,19 +40,19 @@ router.post('/article', ctx => {
 })
 
 router.delete('/article/:id', ctx => {
-	const targetArticle = getTargetArticle(ctx.params.id)
+	const article = getArticle(ctx.params.id)
 	
-	if(targetArticle){
-		articles.splice(articles.indexOf(targetArticle), 1)
+	if(article){
+		articles.splice(articles.indexOf(article), 1)
 		ctx.response.status = 200
 	}
 })
 
 router.put('/article/:id', ctx => {
-	const targetArticle = getTargetArticle(ctx.params.id)
+	const article = getArticle(ctx.params.id)
 
-	if(targetArticle){
-		targetArticle.text = ctx.request.body.text
+	if(article){
+		article.text = ctx.request.body.text
 		ctx.response.status = 200
 	}
 })
